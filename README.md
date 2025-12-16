@@ -1,6 +1,6 @@
 # pytemplate
 
-This is a Python 3.14 app called pytemplate. The project includes Docker, ty, uv, ruff, typos, GitHub Actions, pre-commit, and Sphinx.
+This is a Python 3.14 app called pytemplate. The project includes Docker, ty, uv, ruff, typos, GitHub Actions, prek, and Sphinx.
 
 The extremely fast Python package and project manager, [uv](https://docs.astral.sh/uv/#getting-started), is required.
 
@@ -16,7 +16,7 @@ The project uses toml for configuration instead of `setup.py`. The configuration
 
 The project includes Docker, with a `Dockerfile` located in the root directory. The `.dockerignore` file is also located in the root directory.
 
-The project includes `pyright` for static type checking, `typos` for code spell check, `ruff` for linting & code formatting, and `pre-commit` for enforcing these checks before git commits and on the CI. The configuration for these tools is located in the `ruff.toml` and `.pre-commit-config.yaml` files.
+The project includes `pyright` for static type checking, `typos` for code spell check, `ruff` for linting & code formatting, and `prek` for enforcing these checks before git commits and on the CI. The configuration for these tools is located in the `ruff.toml` and `.pre-commit-config.yaml` files.
 
 The project includes Sphinx for documentation, with the documentation located in the `docs` folder. The `source/conf.py` file contains the configuration for Sphinx.
 
@@ -35,7 +35,7 @@ To install the project, clone the repository and run:
 
 ```sh
 uv sync
-uv run pre-commit install
+uv run prek install
 ```
 
 See `Makefile` for other useful commands.

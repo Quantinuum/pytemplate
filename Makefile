@@ -10,7 +10,7 @@ tests:
 	uv run pytest .
 
 lint:
-	uv run pre-commit run --all-files
+	uv run prek run --all-files
 
 docs:
 	uv run sphinx-apidoc -f -o docs/source/ pytemplate
