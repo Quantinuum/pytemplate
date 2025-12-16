@@ -16,7 +16,7 @@ The project uses toml for configuration instead of `setup.py`. The configuration
 
 The project includes Docker, with a `Dockerfile` located in the root directory. The `.dockerignore` file is also located in the root directory.
 
-The project includes `pyright` for static type checking, `typos` for code spell check, `ruff` for linting & code formatting, and `prek` for enforcing these checks before git commits and on the CI. The configuration for these tools is located in the `ruff.toml` and `.pre-commit-config.yaml` files.
+The project includes `ty` for static type checking (use `make lint`), `typos` for code spell check, `ruff` for linting & code formatting, and `prek` for enforcing these checks before git commits and on the CI. The configuration for these tools is located in the `ruff.toml` and `.pre-commit-config.yaml` files.
 
 The project includes Sphinx for documentation, with the documentation located in the `docs` folder. The `source/conf.py` file contains the configuration for Sphinx.
 
