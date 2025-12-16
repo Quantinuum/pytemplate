@@ -1,6 +1,6 @@
 # pytemplate
 
-This is a Python 3.13 app called pytemplate. The project includes Docker, pyright, ruff, typos, GitHub Actions, pre-commit, and Sphinx.
+This is a Python 3.14 app called pytemplate. The project includes Docker, ty, uv, ruff, typos, GitHub Actions, pre-commit, and Sphinx.
 
 The extremely fast Python package and project manager, [uv](https://docs.astral.sh/uv/#getting-started), is required.
 
@@ -9,36 +9,6 @@ The extremely fast Python package and project manager, [uv](https://docs.astral.
 <summary>Project Structure</summary>
 
 ## Project Structure
-
-The project structure is as follows:
-
-```sh
-pytemplate
-├── .dockerignore
-├── .github
-│   ├── dependabot.yml
-│   └── workflows
-│       └── python-app.yml
-├── .gitignore
-├── .pre-commit-config.yaml
-├── Dockerfile
-├── Makefile
-├── README.md
-├── docs
-│   ├── Makefile
-│   └── source
-│       ├── conf.py
-│       └── index.rst
-├── pyproject.toml
-├── pytemplate
-│   ├── __init__.py
-│   ├── main.py
-│   └── utils.py
-├── ruff.toml
-└── tests
-    ├── test_main.py
-    └── test_utils.py
-```
 
 The source code is located in the `pytemplate` folder, which contains the `__init__.py`, `main.py`, and `utils.py` files. The tests are located in the `tests` folder, which contains the `test_main.py` and `test_utils.py` files.
 

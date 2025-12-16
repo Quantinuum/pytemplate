@@ -1,5 +1,5 @@
 # See https://docs.astral.sh/ruff/rules/
-target-version = "py313"
+target-version = "py314"
 
 line-length = 88
 
