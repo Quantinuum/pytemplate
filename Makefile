@@ -11,6 +11,7 @@ tests:
 
 lint:
 	uv run prek run --all-files
+	uvx ty check
 
 docs:
 	uv run sphinx-apidoc -f -o docs/source/ pytemplate
