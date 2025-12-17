@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.13"]
+        python-version: ["3.14"]
 
     steps:
       - uses: actions/checkout@v6
@@ -28,7 +28,7 @@ jobs:
           uv sync --all-extras --dev
       - name: Pre-commit checks
         run: |
-          uv run pre-commit run --all-files
+          uv run prek run --all-files
       - name: Run tests
         run: |
           uv run pytest
@@ -44,11 +44,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: docs/build/html/
           force_orphan: true
-
-    # TODO in the future
-    # - name: Build and push Docker image
-    #   uses: docker/build-push-action@v2
-    #   with:
-    #     context: .
-    #     push: true
-    #     tags: nathfitz/test:latest
