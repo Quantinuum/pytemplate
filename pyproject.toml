@@ -14,7 +14,7 @@ authors = [{ name = "Author", email = "author@email.com" }]
 dev = [
   "prek~=0.2.22",
   "pytest~=9.0.2",
-  "sphinx~=9.0.4",
+  "sphinx~=9.1.0",
 ]
 
 [tool.setuptools.packages.find]
