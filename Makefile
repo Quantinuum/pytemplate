@@ -1,24 +1,26 @@
-.PHONY: install dev tests lint docs clean build
-
-install:
-	uv pip install .
+.PHONY: dev format lint test docs clean build
 
 dev:
-	uv pip install -e .
+	uv sync --all-groups
 
-tests:
-	uv run pytest .
+format:
+	uv run ruff format .
 
 lint:
+	uv run ruff format --check .
+	uv run ruff check .
+	uv run ty check src tests
 	uv run prek run --all-files
-	uvx ty check
+
+test:
+	uv run pytest
 
 docs:
-	uv run sphinx-apidoc -f -o docs/source/ pytemplate
+	uv run sphinx-apidoc -f -o docs/source/ src/pytemplate
 	uv run sphinx-build -M html docs/source/ docs/build/
 
 clean:
-	rm -rf *.egg-info dist build docs/build
+	rm -rf *.egg-info .coverage .pytest_cache .ruff_cache .ty dist build docs/build
 
 build: clean
 	uv build

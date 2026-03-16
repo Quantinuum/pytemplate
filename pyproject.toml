@@ -1,30 +1,112 @@
 [build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["uv_build>=0.8.13,<0.9.0"]
+build-backend = "uv_build"
 
 [project]
 name = "pytemplate"
 version = "0.0.1"
 description = "A python library"
+dependencies = []
 readme = "README.md"
 requires-python = ">=3.14"
 authors = [{ name = "Author", email = "author@email.com" }]
 
+[project.scripts]
+pytemplate = "pytemplate.main:main"
+
 [dependency-groups]
 dev = [
-  "prek~=0.3.1",
-  "pytest~=9.0.2",
-  "sphinx~=9.1.0",
+  { include-group = "docs" },
+  { include-group = "lint" },
+  { include-group = "test" },
 ]
-
-[tool.setuptools.packages.find]
-where = ["."]
+docs = ["sphinx~=9.1.0"]
+lint = ["prek~=0.3.1", "ruff~=0.12.12", "ty~=0.0.1a18"]
+test = ["pytest~=9.0.2", "pytest-cov~=7.0.0"]
 
 [project.urls]
 Repository = "https://github.com/CQCL/pytemplate.git"
 
 [tool.pytest.ini_options]
-pythonpath = ["."]
+addopts = [
+  "--cov=pytemplate",
+  "--cov-report=term-missing",
+]
+testpaths = ["tests"]
 
-[tool.refurb]
-python_version = "3.14"
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+
+[tool.ruff.lint]
+select = [
+  "E",
+  "W",
+  "A",
+  "ANN",
+  "ARG",
+  "B",
+  "BLE",
+  "C4",
+  "C90",
+  "COM",
+  "D",
+  "EM",
+  "ERA",
+  "EXE",
+  "F",
+  "FA",
+  "FBT",
+  "FIX",
+  "FLY",
+  "FURB",
+  "G",
+  "I",
+  "ICN",
+  "INP",
+  "INT",
+  "ISC",
+  "LOG",
+  "N",
+  "NPY",
+  "PERF",
+  "PGH",
+  "PIE",
+  "PL",
+  "PT",
+  "PTH",
+  "PYI",
+  "Q",
+  "RET",
+  "RSE",
+  "RUF",
+  "S",
+  "SIM",
+  "SLF",
+  "SLOT",
+  "T10",
+  "TC",
+  "TD",
+  "TID",
+  "TRY",
+  "UP",
+  "YTT",
+]
+ignore = ["COM812", "ISC001"]
+
+[tool.ruff.lint.per-file-ignores]
+"docs/*" = ["D100", "INP001"]
+"tests/*" = ["INP001", "PLR2004", "S101"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ty.terminal]
+error-on-warning = true
+
+[tool.ty.environment]
+python-version = "3.14"
+
+[tool.ty.rules]
+possibly-unresolved-reference = "error"
+unused-ignore-comment = "warn"

@@ -11,4 +11,4 @@ COPY . .
 RUN uv sync --frozen
 
 # Run the command
-CMD ["uv", "run", "pytemplate/main.py"]
+CMD ["uv", "run", "pytemplate"]
