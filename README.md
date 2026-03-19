@@ -24,10 +24,14 @@ The project includes GitHub Actions CI in `.github/workflows/python-app.yml`.
 
 </details>
 
-## Usage Notes
+## Template Setup
 
 - Replace all mentions of `pytemplate` with your package name.
-- Update the metadata in `pyproject.toml` before publishing.
+- Rename `src/pytemplate` to your package name and update imports in `tests/`.
+- Update package metadata in `pyproject.toml`, including name, description, authors, and repository URL.
+- Update the console script name in `pyproject.toml` if you do not want to keep `pytemplate`.
+- Update Sphinx metadata in `docs/source/conf.py`, then run `make docs`.
+- Review `.github/workflows/python-app.yml` and align it with your intended CI triggers and install commands.
 - Agentic coding tools should follow the repository guidance in `AGENTS.md`.
 
 ## Installation
