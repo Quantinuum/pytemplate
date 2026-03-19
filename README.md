@@ -28,6 +28,7 @@ The project is ready to be extended with CI automation.
 
 - Replace all mentions of `pytemplate` with your package name.
 - Update the metadata in `pyproject.toml` before publishing.
+- Agentic coding tools should follow the repository guidance in `AGENTS.md`.
 
 ## Installation
 
