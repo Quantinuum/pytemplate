@@ -1,6 +1,6 @@
 # pytemplate
 
-This is a Python 3.14 app called pytemplate. The project includes Docker, ty, uv, ruff, typos, GitHub Actions, prek, and Sphinx.
+This is a Python 3.14 package template called `pytemplate`. The project uses `uv` for dependency management, `ruff` for linting and formatting, `ty` for type checking, `pytest` with coverage for tests, `prek` for repository checks, and Sphinx for docs.
 
 The extremely fast Python package and project manager, [uv](https://docs.astral.sh/uv/#getting-started), is required.
 
@@ -10,36 +10,55 @@ The extremely fast Python package and project manager, [uv](https://docs.astral.
 
 ## Project Structure
 
-The source code is located in the `pytemplate` folder, which contains the `__init__.py`, `main.py`, and `utils.py` files. The tests are located in the `tests` folder, which contains the `test_main.py` and `test_utils.py` files.
+The source code lives in `src/pytemplate`, and the tests live in `tests`.
 
-The project uses toml for configuration instead of `setup.py`. The configuration file is located in `pyproject.toml`.
+Project configuration is centralized in `pyproject.toml`.
 
-The project includes Docker, with a `Dockerfile` located in the root directory. The `.dockerignore` file is also located in the root directory.
+The project includes Docker with a `Dockerfile` in the repository root.
 
-The project includes `ty` for static type checking (use `make lint`), `typos` for code spell check, `ruff` for linting & code formatting, and `prek` for enforcing these checks before git commits and on the CI. The configuration for these tools is located in the `ruff.toml` and `.pre-commit-config.yaml` files.
+The project includes `ty` for static type checking, `typos` for spell checking, `ruff` for linting and formatting, and `prek` for repository checks before commits and in CI. Tool configuration lives in `pyproject.toml` and `.pre-commit-config.yaml`.
 
-The project includes Sphinx for documentation, with the documentation located in the `docs` folder. The `source/conf.py` file contains the configuration for Sphinx.
+The project includes Sphinx documentation in `docs`.
 
-The project includes GitHub Actions for continuous integration, with the configuration located in the `.github/workflows/python-app.yml` file.
+The project includes GitHub Actions CI in `.github/workflows/python-app.yml`.
 
 </details>
 
-## Usage Notes
+## Template Setup
 
-- [Replace](https://github.com/your-tools/ruplacer) all mentions of "pytemplate" to your own project's name.
-- Edit `.github/workflows/python-app.yml` to configure which triggers and jobs to enable/disable.
+- Replace all mentions of `pytemplate` with your package name.
+- Rename `src/pytemplate` to your package name and update imports in `tests/`.
+- Update package metadata in `pyproject.toml`, including name, description, authors, and repository URL.
+- Update the console script name in `pyproject.toml` if you do not want to keep `pytemplate`.
+- Update Sphinx metadata in `docs/source/conf.py`, then run `make docs`.
+- Review `.github/workflows/python-app.yml` and align it with your intended CI triggers and install commands.
+- Agentic coding tools should follow the repository guidance in `AGENTS.md`.
 
 ## Installation
 
-To install the project, clone the repository and run:
+Install dependencies and tooling with:
 
 ```sh
-uv sync
+uv sync --all-groups
 uv run prek install
 ```
 
-See `Makefile` for other useful commands.
+The package also exposes a console entry point:
+
+```sh
+uv run pytemplate
+```
+
+See `Makefile` for the common workflows.
 
 ## Testing
 
-Issue `make tests` or `uv run pytest` from the root directory.
+Use `make test` or `uv run pytest`.
+
+## Linting and Type Checking
+
+Use `make lint` to run `ruff`, `ty`, and `prek`.
+
+## Dependency Audit
+
+Use `make audit` or `uv run pip-audit` to scan the environment for known vulnerable packages.
