@@ -20,7 +20,7 @@ The project includes `ty` for static type checking, `typos` for spell checking, 
 
 The project includes Sphinx documentation in `docs`.
 
-The project is ready to be extended with CI automation.
+The project includes GitHub Actions CI in `.github/workflows/python-app.yml`.
 
 </details>
 

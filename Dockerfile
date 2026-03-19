@@ -7,8 +7,8 @@ WORKDIR /pytemplate
 # Copy pyproject.toml and other files to the container
 COPY . .
 
-# Install the dependencies
-RUN uv sync --frozen
+# Install runtime dependencies only
+RUN uv sync --frozen --no-default-groups
 
 # Run the command
 CMD ["uv", "run", "pytemplate"]

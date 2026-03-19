@@ -1,5 +1,7 @@
 """Tests for pytemplate.main."""
 
+from __future__ import annotations
+
 from typing import TYPE_CHECKING
 
 from pytemplate.main import hello_world, main
