@@ -53,3 +53,7 @@ Use `make test` or `uv run pytest`.
 ## Linting and Type Checking
 
 Use `make lint` to run `ruff`, `ty`, and `prek`.
+
+## Dependency Audit
+
+Use `make audit` or `uv run pip-audit` to scan the environment for known vulnerable packages.

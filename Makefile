@@ -1,4 +1,4 @@
-.PHONY: dev format lint test docs clean build
+.PHONY: dev format lint test audit docs clean build
 
 dev:
 	uv sync --all-groups
@@ -14,6 +14,9 @@ lint:
 
 test:
 	uv run pytest
+
+audit:
+	uv run pip-audit
 
 docs:
 	uv run sphinx-apidoc -f -o docs/source/ src/pytemplate
