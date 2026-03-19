@@ -38,75 +38,36 @@ Repository = "https://github.com/CQCL/pytemplate.git"
 addopts = [
   "--cov=pytemplate",
   "--cov-report=term-missing",
+  "--cov-fail-under=80",
 ]
 testpaths = ["tests"]
 
 [tool.ruff]
 line-length = 100
 target-version = "py314"
+src = ["src"]
 
 [tool.ruff.lint]
-select = [
-  "E",
-  "W",
-  "A",
-  "ANN",
-  "ARG",
-  "B",
-  "BLE",
-  "C4",
-  "C90",
-  "COM",
-  "D",
-  "EM",
-  "ERA",
-  "EXE",
-  "F",
-  "FA",
-  "FBT",
-  "FIX",
-  "FLY",
-  "FURB",
-  "G",
-  "I",
-  "ICN",
-  "INP",
-  "INT",
-  "ISC",
-  "LOG",
-  "N",
-  "NPY",
-  "PERF",
-  "PGH",
-  "PIE",
-  "PL",
-  "PT",
-  "PTH",
-  "PYI",
-  "Q",
-  "RET",
-  "RSE",
-  "RUF",
-  "S",
-  "SIM",
-  "SLF",
-  "SLOT",
-  "T10",
-  "TC",
-  "TD",
-  "TID",
-  "TRY",
-  "UP",
-  "YTT",
-]
+select = ["ALL"]
 ignore = ["COM812", "ISC001"]
 
 [tool.ruff.lint.per-file-ignores]
 "docs/*" = ["D100", "INP001"]
-"tests/*" = ["INP001", "PLR2004", "S101"]
+"tests/*" = ["ANN", "INP001", "PLR2004", "S101"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
+
+[tool.coverage.run]
+branch = true
+source = ["src/pytemplate"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "pragma: no cover",
+  "if TYPE_CHECKING:",
+  "if __name__ == .__main__.:",
+]
 
 [tool.ty.terminal]
 error-on-warning = true
