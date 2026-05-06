@@ -15,11 +15,7 @@ authors = [{ name = "Author", email = "author@email.com" }]
 pytemplate = "pytemplate.main:main"
 
 [dependency-groups]
-audit = [
-    "pip-audit>=2.10.0",
-]
 dev = [
-  { include-group = "audit" },
   { include-group = "docs" },
   { include-group = "lint" },
   { include-group = "test" },
@@ -30,6 +26,7 @@ test = ["pytest~=9.0.3", "pytest-cov~=7.1.0"]
 
 [tool.uv]
 default-groups = ["dev"]
+exclude-newer = "7 days"
 
 [project.urls]
 Repository = "https://github.com/CQCL/pytemplate.git"

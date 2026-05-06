@@ -8,7 +8,7 @@ This repository is a modern Python template. When making changes, prefer the rep
 - Use `ruff` for linting and formatting.
 - Use `ty` for type checking.
 - Use `pytest` for testing.
-- Use `pip-audit` for dependency vulnerability checks.
+- Use `uv audit` for dependency vulnerability checks.
 - Use `prek` for repository hooks and pre-commit-style checks.
 
 ## Dependency Management Rules
@@ -32,7 +32,7 @@ This repository is a modern Python template. When making changes, prefer the rep
 - Lint code: `uv run ruff check .`
 - Type check: `uv run ty check src tests`
 - Test: `uv run pytest`
-- Audit dependencies: `uv run pip-audit`
+- Audit dependencies: `uv audit --locked`
 
 ## Editing Guidance
 

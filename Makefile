@@ -16,7 +16,7 @@ test:
 	uv run pytest
 
 audit:
-	uv run pip-audit
+	uv audit --locked
 
 docs:
 	uv run sphinx-apidoc -f -o docs/source/ src/pytemplate

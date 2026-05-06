@@ -1,6 +1,6 @@
 # pytemplate
 
-This is a Python 3.14 package template called `pytemplate`. The project uses `uv` for dependency management, `ruff` for linting and formatting, `ty` for type checking, `pytest` with coverage for tests, `prek` for repository checks, and Sphinx for docs.
+This is a Python 3.14 package template called `pytemplate`. The project uses `uv` for dependency management, `ruff` for linting and formatting, `ty` for type checking, `pytest` with coverage for tests, `prek` for repository checks, `uv audit` for dependency vulnerability scanning, and Sphinx for docs.
 
 The extremely fast Python package and project manager, [uv](https://docs.astral.sh/uv/#getting-started), is required.
 
@@ -61,4 +61,4 @@ Use `make lint` to run `ruff`, `ty`, and `prek`.
 
 ## Dependency Audit
 
-Use `make audit` or `uv run pip-audit` to scan the environment for known vulnerable packages.
+Use `make audit` or `uv audit --locked` to scan locked dependencies for known vulnerabilities. The template also configures uv with a 7-day dependency cooldown so routine dependency resolution avoids newly uploaded packages while the package ecosystem has time to discover and report supply-chain compromises.
