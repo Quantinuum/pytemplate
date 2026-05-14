@@ -21,13 +21,13 @@ dev = [
   { include-group = "test" },
 ]
 docs = ["sphinx~=9.1.0"]
-lint = ["prek~=0.3.11", "ruff~=0.15.12", "ty~=0.0.33"]
+lint = ["prek~=0.4", "ruff~=0.15", "ty~=0.0.35"]
 test = ["pytest~=9.0.3", "pytest-cov~=7.1.0"]
 
 [tool.uv]
 default-groups = ["dev"]
-exclude-newer = "7 days"
-exclude-newer-package = { urllib3 = false }
+# Optional: enable a dependency cooldown window if you want to avoid very recent uploads.
+# exclude-newer = "7 days"
 
 [project.urls]
 Repository = "https://github.com/CQCL/pytemplate.git"
