@@ -27,6 +27,7 @@ test = ["pytest~=9.0.3", "pytest-cov~=7.1.0"]
 [tool.uv]
 default-groups = ["dev"]
 exclude-newer = "7 days"
+exclude-newer-package = { urllib3 = false }
 
 [project.urls]
 Repository = "https://github.com/CQCL/pytemplate.git"
