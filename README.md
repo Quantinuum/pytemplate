@@ -61,4 +61,6 @@ Use `make lint` to run `ruff`, `ty`, and `prek`.
 
 ## Dependency Audit
 
-Use `make audit` or `uv audit --locked` to scan locked dependencies for known vulnerabilities. The template also configures uv with a 7-day dependency cooldown so routine dependency resolution avoids newly uploaded packages while the package ecosystem has time to discover and report supply-chain compromises.
+Use `make audit` or `uv audit --locked` to scan locked dependencies for known vulnerabilities.
+
+If you want an extra supply-chain safeguard, consider enabling `uv`'s `exclude-newer` setting to avoid resolving to very recently uploaded packages until the ecosystem has had time to surface compromises or bad releases. This template leaves that policy disabled by default, but includes a commented example in `pyproject.toml`.
