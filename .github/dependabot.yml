@@ -7,6 +7,7 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+    versioning-strategy: lockfile-only
     commit-message:
       prefix: "chore"
       include: "scope"
