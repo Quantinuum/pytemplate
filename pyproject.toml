@@ -47,7 +47,8 @@ src = ["src"]
 
 [tool.ruff.lint]
 select = ["ALL"]
-ignore = ["COM812", "ISC001"]
+# Template adopters can enable CPY001 after choosing a copyright notice.
+ignore = ["COM812", "CPY001", "ISC001"]
 
 [tool.ruff.lint.per-file-ignores]
 "docs/*" = ["D100", "INP001"]
