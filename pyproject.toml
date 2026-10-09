@@ -32,6 +32,7 @@ lint = ["prek~=0.4", "ruff~=0.16", "ty~=0.0.64"]
 test = ["pytest~=9.1.1", "pytest-cov~=7.1.0"]
 
 [tool.uv]
+required-version = ">=0.12.24"
 default-groups = ["dev"]
 # Temporary release-day catalog: uv 0.12.24 bundles only Python 3.15 release candidates.
 # Remove this override once the installed uv release includes Python 3.15.0 downloads.
