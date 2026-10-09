@@ -1,8 +1,18 @@
 # pytemplate
 
-This is a Python 3.14 package template called `pytemplate`. The project uses `uv` for dependency management, `ruff` for linting and formatting, `ty` for type checking, `pytest` with coverage for tests, `prek` for repository checks, `uv audit` for dependency vulnerability scanning, and Sphinx for docs.
+This is a Python 3.15+ package template called `pytemplate`. The project uses `uv` for dependency management, `ruff` for linting and formatting, `ty` for type checking, `pytest` with coverage for tests, `prek` for repository checks, `uv audit` for dependency vulnerability scanning, and Sphinx for docs.
 
 The extremely fast Python package and project manager, [uv](https://docs.astral.sh/uv/#getting-started), is required.
+
+## Python Support
+
+Python 3.15 is the minimum supported version. CI checks CPython 3.15 with tests, linting, type checking, documentation builds, and package builds.
+
+This raises the template's previous Python 3.14 minimum; downstream projects must upgrade their interpreter or retain the earlier template configuration. The package has no runtime dependencies. Review the support policy and dependency constraints when adapting this template for downstream users.
+
+The default development interpreter in `.python-version`, Docker image, Ruff target, and ty target all use Python 3.15.
+
+Python 3.15.0 was [released on October 9, 2026](https://www.python.org/downloads/release/python-3150/). Until uv ships its updated interpreter catalog and combined Python 3.15 Docker images, `pyproject.toml` uses a pinned upstream catalog and Docker installs managed Python 3.15.0 from the runtime-free uv image. Remove the catalog override once uv includes the final release, and switch back to a combined image when available.
 
 <details>
 
