@@ -1,18 +1,33 @@
 # pytemplate
 
-This is a Python 3.15+ package template called `pytemplate`. The project uses `uv` for dependency management, `ruff` for linting and formatting, `ty` for type checking, `pytest` with coverage for tests, `prek` for repository checks, `uv audit` for dependency vulnerability scanning, and Sphinx for docs.
+This is a Python package template called `pytemplate`, supporting Python 3.12+ with Python 3.15 as the default. The project uses `uv` for dependency management, `ruff` for linting and formatting, `ty` for type checking, `pytest` with coverage for tests, `prek` for repository checks, `uv audit` for dependency vulnerability scanning, and Sphinx for docs.
 
 The extremely fast Python package and project manager, [uv](https://docs.astral.sh/uv/#getting-started), is required.
 
 ## Python Support
 
-Python 3.15 is the minimum supported version. CI checks CPython 3.15 with tests, linting, type checking, documentation builds, and package builds.
+Python 3.15 is the default development interpreter in `.python-version` and Docker. The package minimum is Python 3.12; CI checks CPython 3.12, 3.13, 3.14, and 3.15 with tests, linting, type checking, documentation builds, and package builds. Ruff and ty target Python 3.12 so code remains compatible with the minimum.
 
-This raises the template's previous Python 3.14 minimum; downstream projects must upgrade their interpreter or retain the earlier template configuration. The package has no runtime dependencies. Review the support policy and dependency constraints when adapting this template for downstream users.
+The package has no runtime dependencies. Review the support policy and dependency constraints when adapting this template for downstream users.
 
-The default development interpreter in `.python-version`, Docker image, Ruff target, and ty target all use Python 3.15.
+To use an older supported Python version, pin it and sync the environment:
 
-Python 3.15.0 was [released on October 9, 2026](https://www.python.org/downloads/release/python-3150/). Until uv ships its updated interpreter catalog and combined Python 3.15 Docker images, `pyproject.toml` uses a pinned upstream catalog and Docker installs managed Python 3.15.0 from the runtime-free uv image. Remove the catalog override once uv includes the final release, and switch back to a combined image when available.
+```sh
+uv python pin 3.12
+uv sync --locked --all-groups
+uv run pytest
+uv run prek run --all-files
+```
+
+This updates `.python-version`; no dependency or tool configuration edits are needed to switch between Python 3.12 and 3.15. prek selects an available Python interpreter for its hooks, without requiring Python 3.15, and Refurb also targets Python 3.12 code. For a one-off check without changing the default, use `uv run --python 3.12 pytest`.
+
+Docker uses the `PYTHON_VERSION` build argument:
+
+```sh
+docker build --build-arg PYTHON_VERSION=3.12 -t pytemplate:python312 .
+```
+
+Python 3.15.0 was [released on October 9, 2026](https://www.python.org/downloads/release/python-3150/). Until uv ships its updated interpreter catalog, `pyproject.toml` uses a pinned upstream catalog. Docker installs the selected managed Python version from the uv image. Remove the catalog override once uv includes the final release.
 
 <details>
 

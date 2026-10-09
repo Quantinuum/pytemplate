@@ -3,7 +3,9 @@ pytemplate
 
 Demo Sphinx site for the `CQCL pytemplate <https://github.com/CQCL/pytemplate>`_ project.
 
-Python 3.15 or newer is required. CI checks CPython 3.15.
+Python 3.12 or newer is supported, with Python 3.15 as the default.
+CI checks CPython 3.12 through 3.15. To select an older supported interpreter,
+run ``uv python pin 3.12`` before syncing dependencies.
 
 ----
 
