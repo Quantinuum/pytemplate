@@ -1,7 +1,7 @@
 # Install managed Python with uv until a combined Python 3.15 image is available.
 FROM ghcr.io/astral-sh/uv:bookworm-slim
 # The unversioned Debian image currently bundles an older uv release.
-COPY --from=ghcr.io/astral-sh/uv:0.12.24 /uv /uvx /usr/local/bin/
+COPY --from=ghcr.io/astral-sh/uv:0.13.0 /uv /uvx /usr/local/bin/
 
 ARG PYTHON_VERSION=3.15
 ENV UV_PYTHON=${PYTHON_VERSION}

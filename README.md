@@ -2,7 +2,7 @@
 
 This is a Python package template called `pytemplate`, supporting Python 3.12+ with Python 3.15 as the default. The project uses `uv` for dependency management, `ruff` for linting and formatting, `ty` for type checking, `pytest` with coverage for tests, `prek` for repository checks, `uv audit` for dependency vulnerability scanning, and Sphinx for docs.
 
-The extremely fast Python package and project manager, [uv](https://docs.astral.sh/uv/#getting-started), version **0.12.24 or newer**, is required. `pyproject.toml` enforces this minimum for the interpreter catalog and dependency audit workflow.
+The extremely fast Python package and project manager, [uv](https://docs.astral.sh/uv/#getting-started), version **0.13.0 or newer**, is required. `pyproject.toml` enforces this minimum for stable Python 3.15 downloads and the dependency audit workflow.
 
 ## Python Support
 
@@ -27,7 +27,7 @@ Docker uses the `PYTHON_VERSION` build argument:
 docker build --build-arg PYTHON_VERSION=3.12 -t pytemplate:python312 .
 ```
 
-Python 3.15.0 was [released on October 9, 2026](https://www.python.org/downloads/release/python-3150/). Until uv ships its updated interpreter catalog, `pyproject.toml` uses a pinned upstream catalog. Docker installs the selected managed Python version from the uv image. Remove the catalog override once uv includes the final release.
+Python 3.15.0 was [released on October 9, 2026](https://www.python.org/downloads/release/python-3150/). uv 0.13.0 includes the stable release in its bundled interpreter catalog. Docker installs the selected managed Python version from the uv image.
 
 <details>
 
