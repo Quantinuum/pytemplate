@@ -2,32 +2,16 @@
 
 This is a Python package template called `pytemplate`, supporting Python 3.12+ with Python 3.15 as the default. The project uses `uv` for dependency management, `ruff` for linting and formatting, `ty` for type checking, `pytest` with coverage for tests, `prek` for repository checks, `uv audit` for dependency vulnerability scanning, and Sphinx for docs.
 
-The extremely fast Python package and project manager, [uv](https://docs.astral.sh/uv/#getting-started), version **0.13.0 or newer**, is required. `pyproject.toml` enforces this minimum for stable Python 3.15 downloads and the dependency audit workflow.
+Requires [uv](https://docs.astral.sh/uv/#getting-started) **0.13.0+**.
 
-## Python Support
-
-Python 3.15 is the default development interpreter in `.python-version` and Docker. The package minimum is Python 3.12; CI checks CPython 3.12, 3.13, 3.14, and 3.15 with tests, linting, type checking, documentation builds, and package builds. Ruff and ty target Python 3.12 so code remains compatible with the minimum.
-
-The package has no runtime dependencies. Review the support policy and dependency constraints when adapting this template for downstream users.
-
-To use an older supported Python version, pin it and sync the environment:
+To use an older supported Python version:
 
 ```sh
 uv python pin 3.12
 uv sync --locked --all-groups
-uv run pytest
-uv run prek run --all-files
 ```
 
-This updates `.python-version`; no dependency or tool configuration edits are needed to switch between Python 3.12 and 3.15. prek selects an available Python interpreter for its hooks, without requiring Python 3.15, and Refurb also targets Python 3.12 code. For a one-off check without changing the default, use `uv run --python 3.12 pytest`.
-
-Docker uses the `PYTHON_VERSION` build argument:
-
-```sh
-docker build --build-arg PYTHON_VERSION=3.12 -t pytemplate:python312 .
-```
-
-Python 3.15.0 was [released on October 9, 2026](https://www.python.org/downloads/release/python-3150/). uv 0.13.0 includes the stable release in its bundled interpreter catalog. Docker uses a combined uv/Python image selected by `PYTHON_VERSION`.
+For Docker, use `docker build --build-arg PYTHON_VERSION=3.12 -t pytemplate .`.
 
 <details>
 
