@@ -27,7 +27,7 @@ Docker uses the `PYTHON_VERSION` build argument:
 docker build --build-arg PYTHON_VERSION=3.12 -t pytemplate:python312 .
 ```
 
-Python 3.15.0 was [released on October 9, 2026](https://www.python.org/downloads/release/python-3150/). uv 0.13.0 includes the stable release in its bundled interpreter catalog. Docker installs the selected managed Python version from the uv image.
+Python 3.15.0 was [released on October 9, 2026](https://www.python.org/downloads/release/python-3150/). uv 0.13.0 includes the stable release in its bundled interpreter catalog. Docker uses a combined uv/Python image selected by `PYTHON_VERSION`.
 
 <details>
 
