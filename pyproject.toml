@@ -8,7 +8,14 @@ version = "0.0.1"
 description = "A python library"
 dependencies = []
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.12"
+classifiers = [
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Programming Language :: Python :: 3.15",
+]
 authors = [{ name = "Author", email = "author@email.com" }]
 
 [project.scripts]
@@ -25,6 +32,7 @@ lint = ["prek~=0.5", "ruff~=0.16", "ty~=0.0.75"]
 test = ["pytest~=9.1.1", "pytest-cov~=7.1.0"]
 
 [tool.uv]
+required-version = ">=0.13.0"
 default-groups = ["dev"]
 # Optional: enable a dependency cooldown window if you want to avoid very recent uploads.
 # exclude-newer = "7 days"
@@ -42,12 +50,13 @@ testpaths = ["tests"]
 
 [tool.ruff]
 line-length = 100
-target-version = "py314"
+target-version = "py312"
 src = ["src"]
 
 [tool.ruff.lint]
 select = ["ALL"]
-ignore = ["COM812", "ISC001"]
+# Template adopters can enable CPY001 after choosing a copyright notice.
+ignore = ["COM812", "CPY001", "ISC001"]
 
 [tool.ruff.lint.per-file-ignores]
 "docs/*" = ["D100", "INP001"]
@@ -71,7 +80,7 @@ exclude_lines = [
 error-on-warning = true
 
 [tool.ty.environment]
-python-version = "3.14"
+python-version = "3.12"
 
 [tool.ty.rules]
 possibly-unresolved-reference = "error"

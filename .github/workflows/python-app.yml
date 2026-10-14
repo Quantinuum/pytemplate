@@ -13,13 +13,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        python-version: ["3.14"]
+        python-version: ["3.12", "3.13", "3.14", "3.15"]
 
     steps:
       - uses: actions/checkout@v7
       - name: Install uv
-        uses: astral-sh/setup-uv@v9.0.0
+        uses: astral-sh/setup-uv@v10.2.0
         with:
           python-version: ${{ matrix.python-version }}
           enable-cache: true
@@ -28,20 +29,29 @@ jobs:
           make audit
       - name: Install dependencies
         run: |
-          uv sync --all-extras --dev
+          uv sync --locked --all-groups
+      - name: Lint and type checks
+        run: |
+          uv run ruff format --check .
+          uv run ruff check .
+          uv run ty check --python-version ${{ matrix.python-version }} src tests
       - name: Pre-commit checks
         run: |
           uv run prek run --all-files
       - name: Run tests
         run: |
-          uv run pytest
+          uv run pytest -W error::DeprecationWarning -W error::PendingDeprecationWarning
       - name: Sphinx documentation build
         run: |
           make docs
+      - name: Build and smoke-test distributions
+        run: |
+          uv build --force-pep517
+          uv run --no-project --with ./dist/*.whl pytemplate
       # This deployment will only trigger if push to main trigger is uncommented above
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && matrix.python-version == '3.15' }}
         with:
           publish_branch: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
