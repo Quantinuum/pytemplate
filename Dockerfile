@@ -1,5 +1,8 @@
-# Use a Python image with uv pre-installed
-FROM ghcr.io/astral-sh/uv:python3.14-bookworm-slim
+ARG PYTHON_VERSION=3.15
+FROM ghcr.io/astral-sh/uv:0.13.1-python${PYTHON_VERSION}-trixie-slim
+
+ARG PYTHON_VERSION
+ENV UV_PYTHON=${PYTHON_VERSION}
 
 # Set the working directory to /pytemplate
 WORKDIR /pytemplate
@@ -11,4 +14,4 @@ COPY . .
 RUN uv sync --frozen --no-default-groups
 
 # Run the command
-CMD ["uv", "run", "pytemplate"]
+CMD ["uv", "run", "--no-sync", "pytemplate"]

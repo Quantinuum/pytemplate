@@ -2,6 +2,8 @@
 
 This repository is a modern Python template. When making changes, prefer the repository's modern Python workflow over legacy Python tooling.
 
+Python 3.15 is the default development interpreter; the package supports Python 3.12 and newer. Keep code compatible with Python 3.12 and preserve the CI matrix for Python 3.12 through 3.15. Changing the default interpreter should not raise the package minimum.
+
 ## Preferred Workflow
 
 - Use `uv` for dependency management and environment execution.
