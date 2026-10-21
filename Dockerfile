@@ -1,5 +1,5 @@
 ARG PYTHON_VERSION=3.15
-FROM ghcr.io/astral-sh/uv:0.13.1-python${PYTHON_VERSION}-trixie-slim
+FROM ghcr.io/astral-sh/uv:0.13.4-python${PYTHON_VERSION}-trixie-slim
 
 ARG PYTHON_VERSION
 ENV UV_PYTHON=${PYTHON_VERSION}

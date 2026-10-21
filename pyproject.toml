@@ -32,7 +32,7 @@ lint = ["prek~=0.5", "ruff~=0.16", "ty~=0.0.75"]
 test = ["pytest~=9.1.1", "pytest-cov~=7.1.0"]
 
 [tool.uv]
-required-version = ">=0.13.0"
+required-version = ">=0.13.4"
 default-groups = ["dev"]
 # Optional: enable a dependency cooldown window if you want to avoid very recent uploads.
 # exclude-newer = "7 days"

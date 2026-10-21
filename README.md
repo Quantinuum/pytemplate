@@ -2,7 +2,7 @@
 
 This is a Python package template called `pytemplate`, supporting Python 3.12+ with Python 3.15 as the default. The project uses `uv` for dependency management, `ruff` for linting and formatting, `ty` for type checking, `pytest` with coverage for tests, `prek` for repository checks, `uv audit` for dependency vulnerability scanning, and Sphinx for docs.
 
-Requires [uv](https://docs.astral.sh/uv/#getting-started) **0.13.0+**.
+Requires [uv](https://docs.astral.sh/uv/#getting-started) **0.13.4+**.
 
 To use an older supported Python version:
 
