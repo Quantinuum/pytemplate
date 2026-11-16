@@ -41,6 +41,7 @@ The project includes GitHub Actions CI in `.github/workflows/python-app.yml`.
 - Update the console script name in `pyproject.toml` if you do not want to keep `pytemplate`.
 - Update Sphinx metadata in `docs/source/conf.py`, then run `make docs`.
 - Review `.github/workflows/python-app.yml` and align it with your intended CI triggers and install commands.
+- Enable GitHub code scanning for the new repository as described below.
 - Agentic coding tools should follow the repository guidance in `AGENTS.md`.
 
 ## Installation
@@ -73,3 +74,13 @@ Use `make lint` to run `ruff`, `ty`, and `prek`.
 Use `make audit` or `uv audit --locked` to scan locked dependencies for known vulnerabilities.
 
 If you want an extra supply-chain safeguard, consider enabling `uv`'s `exclude-newer` setting to avoid resolving to very recently uploaded packages until the ecosystem has had time to surface compromises or bad releases. This template leaves that policy disabled by default, but includes a commented example in `pyproject.toml`.
+
+## Code Scanning
+
+For a repository created from this template, enable [GitHub code scanning with CodeQL default setup](https://docs.github.com/en/code-security/how-tos/find-and-fix-code-vulnerabilities/configure-code-scanning/configure-code-scanning):
+
+1. In the repository's **Settings**, open **Advanced Security** and select **Set up** > **Default** for CodeQL analysis.
+2. Review the detected languages, including Python, and start with the **Default** query suite. Enable CodeQL and review the initial scan and its coverage.
+3. Consider the **Extended** query suite if you want additional security checks and can triage the potentially less precise results.
+
+Code scanning settings must be enabled for each new repository, unless managed by your organization. Code scanning is available for public repositories; private organization repositories require GitHub Code Security. Use an advanced CodeQL workflow if you need custom triggers or queries. Code scanning complements the dependency audit above; it does not replace it.
